@@ -5,14 +5,28 @@ public class Libro {
     private double precio;
     private boolean estaDeteriorado;
 
+    public Libro(String titulo){
+
+    this.titulo = titulo;
+
+    }
+
     public Libro(String titulo, String nombreAutor, String apellidoAutor, int librosPublicadosAutor, String nacionalidadAutor, double precio){
 
         this.titulo = titulo;
         this.autor = new Autor(nombreAutor, apellidoAutor, librosPublicadosAutor, nacionalidadAutor);
         this.precio = precio;
         this.estaDeteriorado = false;
-
     }
+
+    public Libro(String titulo, Autor autor, double precio){
+
+        this.titulo = titulo;
+        this.autor = autor;
+        this.precio = precio;
+        this.estaDeteriorado = false;
+    }
+
 
     public void muestraTitulo(){
 
@@ -40,5 +54,6 @@ public class Libro {
         return precio;
 
     }
+
 
 }
