@@ -6,6 +6,8 @@ public class UsoCoche {
 
         Coche cocheMartin = new Coche("Amarillo", "Land Cruiser");
 
+        Coche cocheElena = new Coche("Blanco", "Auris");
+
         cocheMartin.acelerar();
         cocheMartin.acelerar();
 
@@ -17,7 +19,7 @@ public class UsoCoche {
 
         System.out.println("Velocidad del coche de Amina " + cocheAmina.getVelocidad());
 
-        cocheAmina.acelerar(50);
+        int velocidadAmina = cocheAmina.acelerar(50);
 
         System.out.println("Velocidad del coche de Amina " + cocheAmina.getVelocidad());
 
@@ -27,6 +29,11 @@ public class UsoCoche {
 
         System.out.println(cocheMartin);
 
+        System.out.printf("La velodidad de Amina es %d mph, que son %d km/h\n", velocidadAmina, Coche.convertirAKm(velocidadAmina));
+
+        System.out.println("Se han fabricado " + Coche.totalCoches() + " coches");
     }
+
+
 
 }
