@@ -8,30 +8,23 @@ public class UsoCoche {
 
         Coche cocheElena = new Coche("Blanco", "Auris");
 
-        cocheMartin.acelerar();
-        cocheMartin.acelerar();
+        Coche cocheAlex = new Coche("Azul", "Aventador", new Motor("V12",540));
 
-        System.out.println("Velocidad del coche de Martín " + cocheMartin.getVelocidad());
+        cocheAlex.muestraDatosMotor();
 
-        cocheMartin.parar();
+        Motor nuevoMotor = new Motor("V10", 850);
 
-        System.out.println("Velocidad del coche de Martín " + cocheMartin.getVelocidad());
+        System.out.println("Le cambio el motor a uno nuevo");
 
-        System.out.println("Velocidad del coche de Amina " + cocheAmina.getVelocidad());
+        cocheAlex.montarMotor(nuevoMotor);
 
-        int velocidadAmina = cocheAmina.acelerar(50);
+        cocheAlex.muestraDatosMotor();
 
-        System.out.println("Velocidad del coche de Amina " + cocheAmina.getVelocidad());
+        Coche cocheLorien = Coche.comprarCoche();
+        
+        System.out.println(cocheLorien);
 
-        System.out.println(cocheMartin);
 
-        System.out.println("Martín, pintar el coche te ha costado "+ cocheMartin.pintar("rosa"));
-
-        System.out.println(cocheMartin);
-
-        System.out.printf("La velodidad de Amina es %d mph, que son %d km/h\n", velocidadAmina, Coche.convertirAKm(velocidadAmina));
-
-        System.out.println("Se han fabricado " + Coche.totalCoches() + " coches");
     }
 
 

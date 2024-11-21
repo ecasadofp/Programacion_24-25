@@ -15,12 +15,15 @@ Crea una clase Motor con atributos como tipo y potencia. Luego, modifica la clas
 tenga un atributo motor que sea una instancia de la clase Motor.
  */
 
+import java.util.Scanner;
+
 public class Coche {
 
     private static int totalCoches = 0;
     private String color;
     private String modelo;
     private int velocidad;
+    private Motor motor;
 
     public Coche(String color, String modelo){
 
@@ -28,6 +31,15 @@ public class Coche {
         this.modelo = modelo;
         this.velocidad = 0;
         ++totalCoches;
+
+    }
+
+    public Coche(String color, String modelo, Motor motor){
+
+        this.color = color;
+        this.modelo = modelo;
+        this.motor = motor;
+
 
     }
 
@@ -77,16 +89,62 @@ public class Coche {
         return this.velocidad;
     }
 
+
     public  static int convertirAKm(int mph){
 
         int km = (int)(1.609 * mph);
         return km;
+    }
 
+    public int getVelocidadEnKm(){
+
+        return convertirAKm(this.velocidad);
     }
 
     public static int totalCoches(){
 
         return totalCoches;
+    }
+
+    public Motor desmontarMotor(){
+        return this.motor;
+    }
+
+    public void montarMotor(Motor motor){
+
+        this.motor = motor;
+
+    }
+
+    public void muestraDatosMotor(){
+
+        System.out.println("Datos motor: " + this.motor);
+
+    }
+
+    public static Coche comprarCoche(){
+
+        Scanner sc = new Scanner(System.in);
+        String color;
+        String modelo;
+        String tipoMotor;
+        int potencia;
+
+        System.out.println("De qué color lo quieres?");
+        color = sc.nextLine();
+        System.out.println("Qué modelo quieres?");
+        modelo = sc.nextLine();
+        System.out.println("Qué tipo de motor le ponemos?");
+        tipoMotor = sc.nextLine();
+        System.out.println("Cuántos caballos quieres?");
+        potencia = sc.nextInt();
+
+        Motor motor = new Motor(tipoMotor, potencia);
+        Coche coche = new Coche(color, modelo, motor);
+
+        return coche;
+
+
     }
 
 }
