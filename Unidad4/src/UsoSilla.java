@@ -4,8 +4,13 @@ public class UsoSilla {
 
 
         Silla miSilla = new Silla(4, Color.BLANCO);
+        Silla tuSilla = new Silla(4, Color.NEGRO);
 
-        System.out.println(miSilla);
+        Coche miCoche = new Coche("Azul", "Mustang");
+
+
+
+        System.out.println(miSilla.equals(miCoche));
 
     }
 

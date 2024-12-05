@@ -19,4 +19,22 @@ public class Silla {
 
     }
 
+    @Override
+    public boolean equals(Object objeto){
+
+        if(!(objeto instanceof Silla))
+            return false;
+
+        Silla objetoSilla = (Silla) objeto;
+
+        if(this.color != objetoSilla.color)
+            return false;
+
+        if(this.numPatas != objetoSilla.numPatas)
+            return false;
+
+        return true;
+
+    }
+
 }

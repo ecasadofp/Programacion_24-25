@@ -17,7 +17,7 @@ tenga un atributo motor que sea una instancia de la clase Motor.
 
 import java.util.Scanner;
 
-public class Coche {
+public class Coche implements Comparable<Coche> {
 
     private static int totalCoches = 0;
     private String color;
@@ -144,6 +144,14 @@ public class Coche {
 
         return coche;
 
+
+    }
+
+    public int compareTo(Coche coche){
+
+
+
+        return this.velocidad-coche.getVelocidad();
 
     }
 

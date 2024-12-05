@@ -24,6 +24,10 @@ public class UsoCoche {
         
         System.out.println(cocheLorien);
 
+        cocheAlex.acelerar();
+
+        System.out.println(cocheAlex.compareTo(cocheLorien));
+
 
     }
 
