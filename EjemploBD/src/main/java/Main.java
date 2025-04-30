@@ -17,13 +17,24 @@ public class Main {
         } catch (SQLException e) {
             System.out.println("No se ha podido conectar a la base de datos");;
         }
+
+
+
+        Coche miCoche = new Coche("negro", "aventador", 2);
+
+        AccesoBD.guardaCoche(miCoche);
+
         try {
-            Coche coche1 = AccesoBD.buscaCoche(1);
+            Coche coche1 = AccesoBD.buscaCoche(7);
             System.out.println(coche1);
         } catch (SQLException e) {
             System.out.println("No se ha podido conectar a la base de datos");;
         }
 
+
+
     }
+
+
 
 }

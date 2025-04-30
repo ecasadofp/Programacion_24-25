@@ -9,11 +9,17 @@ public class AccesoBD {
 
         Connection conexion = DriverManager.getConnection("jdbc:mysql://pruebas-programacion.cx6os4cqeuzn.us-east-1.rds.amazonaws.com/concesionario", "admin", "programacion-DAW1");
 
-        String consulta = "SELECT * FROM coches WHERE id="+ id;
+        PreparedStatement preparedStatement = conexion.prepareStatement("SELECT * FROM coches WHERE id= ?");
 
-        Statement statement = conexion.createStatement();
+        preparedStatement.setInt(1, id);
 
-        ResultSet resultSet = statement.executeQuery(consulta);
+        ResultSet resultSet =preparedStatement.executeQuery();
+
+//        String consulta = "SELECT * FROM coches WHERE id="+ id;
+//
+//        Statement statement = conexion.createStatement();
+//
+// ResultSet resultSet = statement.executeQuery(consulta);
 
         while(resultSet.next()){
 
@@ -31,6 +37,37 @@ public class AccesoBD {
 
 
         return cocheBuscado;
+    }
+
+    public static int guardaCoche(Coche coche){
+
+        int codigoResultado;
+
+        try {
+
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://pruebas-programacion.cx6os4cqeuzn.us-east-1.rds.amazonaws.com:3306/concesionario", "admin", "programacion-DAW1");
+
+            PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO coches VALUES(?, ?, ?, ?)");
+
+            preparedStatement.setInt(1, 7);
+            preparedStatement.setString(2, coche.getColor());
+            preparedStatement.setString(3, coche.getModelo());
+            preparedStatement.setInt(4, coche.getNumPuertas());
+
+            codigoResultado = preparedStatement.executeUpdate();
+
+
+
+
+        }catch(SQLException e){
+
+            e.printStackTrace();
+            codigoResultado = 0;
+        }
+
+return codigoResultado;
+
+
     }
 
 

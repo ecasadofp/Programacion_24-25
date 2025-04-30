@@ -18,4 +18,16 @@ public class Coche {
                 ", numPuertas=" + numPuertas +
                 '}';
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public int getNumPuertas() {
+        return numPuertas;
+    }
 }
